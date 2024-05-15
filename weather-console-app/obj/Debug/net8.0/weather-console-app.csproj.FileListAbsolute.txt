@@ -1,0 +1,14 @@
+/home/adiazcriv/personal-tools/weather-app/weather-console-app/bin/Debug/net8.0/weather-console-app
+/home/adiazcriv/personal-tools/weather-app/weather-console-app/bin/Debug/net8.0/weather-console-app.deps.json
+/home/adiazcriv/personal-tools/weather-app/weather-console-app/bin/Debug/net8.0/weather-console-app.runtimeconfig.json
+/home/adiazcriv/personal-tools/weather-app/weather-console-app/bin/Debug/net8.0/weather-console-app.dll
+/home/adiazcriv/personal-tools/weather-app/weather-console-app/bin/Debug/net8.0/weather-console-app.pdb
+/home/adiazcriv/personal-tools/weather-app/weather-console-app/obj/Debug/net8.0/weather-console-app.GeneratedMSBuildEditorConfig.editorconfig
+/home/adiazcriv/personal-tools/weather-app/weather-console-app/obj/Debug/net8.0/weather-console-app.AssemblyInfoInputs.cache
+/home/adiazcriv/personal-tools/weather-app/weather-console-app/obj/Debug/net8.0/weather-console-app.AssemblyInfo.cs
+/home/adiazcriv/personal-tools/weather-app/weather-console-app/obj/Debug/net8.0/weather-console-app.csproj.CoreCompileInputs.cache
+/home/adiazcriv/personal-tools/weather-app/weather-console-app/obj/Debug/net8.0/weather-console-app.dll
+/home/adiazcriv/personal-tools/weather-app/weather-console-app/obj/Debug/net8.0/refint/weather-console-app.dll
+/home/adiazcriv/personal-tools/weather-app/weather-console-app/obj/Debug/net8.0/weather-console-app.pdb
+/home/adiazcriv/personal-tools/weather-app/weather-console-app/obj/Debug/net8.0/weather-console-app.genruntimeconfig.cache
+/home/adiazcriv/personal-tools/weather-app/weather-console-app/obj/Debug/net8.0/ref/weather-console-app.dll
