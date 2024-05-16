@@ -1,6 +1,7 @@
 using System;
 class Menu
 {
+    string option = "";
     List<string> menuOptions = new List<string>{
         "1- Clima del dia",
         "2- Clima de la semana",
@@ -23,7 +24,11 @@ class Menu
         {
             case "1":
                 APILocation api = new APILocation();
-                api.Main();
+                Dictionary<string, double> coordenadas = api.Main();
+                /* foreach (var item in coordenadas)
+                {
+                    Console.WriteLine($"{item.Key}: {item.Value}");
+                } */
                 break;
             case "2":
                 Console.WriteLine($"opc 2"); 

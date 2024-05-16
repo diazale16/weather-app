@@ -15,7 +15,7 @@ class APILocation
             try
             {
                 string locationAPIKey = jsonData[$"{mapsLocationKeyProperty}"].ToString();
-                Console.WriteLine($"{locationAPIKey}");
+                // Console.WriteLine($"{locationAPIKey}");
                 return locationAPIKey;
             }
             catch (NullReferenceException)
@@ -37,12 +37,14 @@ class APILocation
 
     }
 
-    public void Main()
+    public Dictionary<string, double> Main()
     {
         string apiKey = getAPIKey();
         string url = $"https://maps.googleapis.com/maps/api/geolocation/v1/geolocate?key={apiKey}";
 
-        HttpClient client = new HttpClient();
+        // TODO
+        // Consumision de API 
+        /* HttpClient client = new HttpClient();
         try
         {
             HttpResponseMessage response = client.PostAsync(url, null).Result;
@@ -56,6 +58,13 @@ class APILocation
         {
             Console.WriteLine($" [!] Error: {ex.Message}");
             throw;
-        }   
+        } */
+
+        Dictionary<string, double> coordenadas = new Dictionary<string, double>
+        {
+            { "latitud", 31.428199 },
+            { "longitud", -64.192134 }
+        };
+        return coordenadas;
     }
 }
