@@ -1,43 +1,48 @@
-using System;
 class Menu
 {
-    string option = "";
     List<string> menuOptions = new List<string>{
-        "1- Clima del dia",
-        "2- Clima de la semana",
-        "'q' Salir",
+        " --> WEATHER FORECAST APPLICATION",
+        "[ 1 ] Clima del dia",
+        "[ 2 ] Clima de la semana",
+        "[ Q ] Salir",
         ""
     };
+    public Dashboard resolveMenu(Dashboard tablero)
+    {   
+        printMenu();
+        String option = Console.ReadLine().ToString();
+        solveOption(tablero, option);
+        return tablero;
+    }
     public void printMenu()
     {
         foreach (var linea in menuOptions)
         {
             Console.WriteLine(linea);
         }
-        String option = Console.ReadLine().ToString();
-        solveOption(option);
     }
 
-    public void solveOption(string option = "")
+    public void solveOption(Dashboard tablero, string option = "")
     {
-        switch (option)
+        switch (option.ToLower())
         {
             case "1":
-                APILocation api = new APILocation();
-                Dictionary<string, double> coordenadas = api.Main();
+                Temperature weatherDay = new Temperature();
+                tablero.weatherDay = weatherDay;
+                break;
                 /* foreach (var item in coordenadas)
                 {
                     Console.WriteLine($"{item.Key}: {item.Value}");
                 } */
-                break;
             case "2":
-                Console.WriteLine($"opc 2"); 
+                Forecast forecastWeek = new Forecast();
+                tablero.forecastWeek = forecastWeek;
                 break;
             case "q":
                 Environment.Exit(0);
                 break;
             default: 
-                Console.WriteLine($" [!] La opcion ingresa [{option}] no es valida.");
+                Console.WriteLine($" [*!*] La opcion ingresada [{option}] no es valida.");
                 printMenu();
                 break;
         }
