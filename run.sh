@@ -2,5 +2,5 @@
 # version 1.0
 # Creado por Alejandro Diaz Crivelli
 
-cd ~/personal-tools/weather-app/ || exit 0
-dotnet run --project ./weather-console-app/
+cd ~/personal-tools/weather-app/weather-console-app/ || exit 0
+dotnet run

@@ -35,13 +35,16 @@ class Menu
                 tablero.forecastObject = forecastWeek;
                 break;
             case "q":
+                Console.Clear();
                 Environment.Exit(0);
                 break;
             default:
                 string currentError = $" [ ! ] La opcion ingresada [{option}] no es valida.";
                 string delimiter = new string('*', currentError.Length);
-                List<string> errorAdvice = new List<string>{delimiter,currentError,delimiter};
-                errorAdvice.ForEach(Console.WriteLine);  
+                List<string> errorAdvice = new List<string>{delimiter,currentError,delimiter,""};
+                Console.Clear();
+                errorAdvice.ForEach(Console.WriteLine);
+                resolveMenu(tablero); 
                 break;
         }
     }

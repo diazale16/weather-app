@@ -12,11 +12,11 @@ public class Application
         {
             // mostrar menu y tomar entrada
             // tablero = 
+            Console.Clear();
             menu.resolveMenu(tablero);
-            
             tablero.updateForescast();
             
-        }        
+        }    
     }
 
     public static Dictionary<string, double> setCoordenadas()

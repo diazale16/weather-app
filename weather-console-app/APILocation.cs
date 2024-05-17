@@ -20,7 +20,8 @@ class APILocation
             {
                 string currentError = $" [ ! ] No existe una clave definidia para la propiedad [{mapsLocationKeyProperty}].";
                 string delimiter = new string('*', currentError.Length);
-                List<string> errorAdvice = new List<string>{delimiter,currentError,delimiter};
+                List<string> errorAdvice = new List<string>{delimiter,currentError,delimiter,""};
+                Console.Clear();
                 errorAdvice.ForEach(Console.WriteLine);          
                 return "null";      
             }
@@ -29,7 +30,8 @@ class APILocation
         {
             string currentError = $" [ ! ] No se encontro el archivo [{jsonFilePath}].";
             string delimiter = new string('*', currentError.Length);
-            List<string> errorAdvice = new List<string>{delimiter,currentError,delimiter};
+            List<string> errorAdvice = new List<string>{delimiter,currentError,delimiter,""};
+            Console.Clear();
             errorAdvice.ForEach(Console.WriteLine);          
             return "null";
         }
@@ -37,7 +39,8 @@ class APILocation
         {
             string currentError = $" [ ! ] Excepcion de JSON.";
             string delimiter = new string('*', currentError.Length);
-            List<string> errorAdvice = new List<string>{delimiter,currentError,delimiter};
+            List<string> errorAdvice = new List<string>{delimiter,currentError,delimiter,""};
+            Console.Clear();
             errorAdvice.ForEach(Console.WriteLine);  
             return "null";
         }
