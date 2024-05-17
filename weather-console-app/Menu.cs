@@ -7,12 +7,12 @@ class Menu
         "[ Q ] Salir",
         ""
     };
-    public Dashboard resolveMenu(Dashboard tablero)
+    public void resolveMenu(Dashboard tablero)
     {   
         printMenu();
-        String option = Console.ReadLine().ToString();
+        string option = Console.ReadLine().ToString();
         solveOption(tablero, option);
-        return tablero;
+        // return tablero;
     }
     public void printMenu()
     {
@@ -28,11 +28,11 @@ class Menu
         {
             case "1":
                 Temperature weatherDay = new Temperature();
-                tablero.weatherDay = weatherDay;
+                tablero.forecastObject = weatherDay;
                 break;
             case "2":
                 Forecast forecastWeek = new Forecast();
-                tablero.forecastWeek = forecastWeek;
+                tablero.forecastObject = forecastWeek;
                 break;
             case "q":
                 Environment.Exit(0);

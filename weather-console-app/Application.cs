@@ -11,7 +11,9 @@ public class Application
         while (true)
         {
             // mostrar menu y tomar entrada
-            tablero = menu.resolveMenu(tablero);
+            // tablero = 
+            menu.resolveMenu(tablero);
+            
             tablero.updateForescast();
             
         }        
