@@ -12,6 +12,7 @@ public class Application
         {
             // mostrar menu y tomar entrada
             tablero = menu.resolveMenu(tablero);
+            tablero.updateForescast();
             
         }        
     }

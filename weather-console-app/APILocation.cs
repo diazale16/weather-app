@@ -5,7 +5,6 @@ class APILocation
 {  
     string mapsLocationKeyProperty = "maps_location_key";
     string jsonFilePath = "APIKeys.json";
-
     public string getAPIKey()
     {
         try
@@ -15,23 +14,31 @@ class APILocation
             try
             {
                 string locationAPIKey = jsonData[$"{mapsLocationKeyProperty}"].ToString();
-                // Console.WriteLine($"{locationAPIKey}");
                 return locationAPIKey;
             }
             catch (NullReferenceException)
             {
-                Console.WriteLine($" [!] No existe una clave definidia para la propiedad {mapsLocationKeyProperty}");          
+                string currentError = $" [ ! ] No existe una clave definidia para la propiedad [{mapsLocationKeyProperty}].";
+                string delimiter = new string('*', currentError.Length);
+                List<string> errorAdvice = new List<string>{delimiter,currentError,delimiter};
+                errorAdvice.ForEach(Console.WriteLine);          
                 return "null";      
             }
         }
         catch (FileNotFoundException)
         {
-            Console.WriteLine(" [!] El archivo JSON no fue encontrado.");
+            string currentError = $" [ ! ] No se encontro el archivo [{jsonFilePath}].";
+            string delimiter = new string('*', currentError.Length);
+            List<string> errorAdvice = new List<string>{delimiter,currentError,delimiter};
+            errorAdvice.ForEach(Console.WriteLine);          
             return "null";
         }
         catch (JsonException)
         {
-            Console.WriteLine(" [!] Error al deserializar el JSON.");
+            string currentError = $" [ ! ] Excepcion de JSON.";
+            string delimiter = new string('*', currentError.Length);
+            List<string> errorAdvice = new List<string>{delimiter,currentError,delimiter};
+            errorAdvice.ForEach(Console.WriteLine);  
             return "null";
         }
 

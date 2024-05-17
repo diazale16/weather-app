@@ -30,10 +30,6 @@ class Menu
                 Temperature weatherDay = new Temperature();
                 tablero.weatherDay = weatherDay;
                 break;
-                /* foreach (var item in coordenadas)
-                {
-                    Console.WriteLine($"{item.Key}: {item.Value}");
-                } */
             case "2":
                 Forecast forecastWeek = new Forecast();
                 tablero.forecastWeek = forecastWeek;
@@ -41,9 +37,11 @@ class Menu
             case "q":
                 Environment.Exit(0);
                 break;
-            default: 
-                Console.WriteLine($" [*!*] La opcion ingresada [{option}] no es valida.");
-                printMenu();
+            default:
+                string currentError = $" [ ! ] La opcion ingresada [{option}] no es valida.";
+                string delimiter = new string('*', currentError.Length);
+                List<string> errorAdvice = new List<string>{delimiter,currentError,delimiter};
+                errorAdvice.ForEach(Console.WriteLine);  
                 break;
         }
     }

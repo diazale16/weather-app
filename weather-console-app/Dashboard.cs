@@ -1,11 +1,14 @@
+
 class Dashboard
 {
     public Dictionary<string, double> coordenadas { get; set; }
-    public Forecast? forecastWeek { get; set; }
-    public Temperature? weatherDay { get; set; }
+    public required DecisionManager decisionObject { get; set; }
+    
+    // public Forecast? forecastWeek { get; set; }
+    // public Temperature? weatherDay { get; set; }
 
-    public void Main()
+    internal void updateForescast()
     {
-        Console.WriteLine($"holaa");
+        throw new NotImplementedException();
     }
 }
