@@ -8,8 +8,8 @@ class Dashboard
     // public Temperature? weatherDay { get; set; }
 
     
-    internal void updateForescast()
+    internal void UpdateForescast()
     {
-        if (forecastObject){ forecastObject.update(); }
+        if (forecastObject){ forecastObject.Update(); }
     }
 }

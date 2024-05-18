@@ -5,7 +5,7 @@ public class Application
     Dictionary<string, double> coordenadas = new Dictionary<string, double>();
     public void Run()
     {
-        coordenadas = setCoordenadas();
+        coordenadas = SetCoordenadas();
         tablero.coordenadas = coordenadas;
         
         while (true)
@@ -13,13 +13,13 @@ public class Application
             // mostrar menu y tomar entrada
             // tablero = 
             Console.Clear();
-            menu.resolveMenu(tablero);
-            tablero.updateForescast();
-            
-        }    
+            menu.ResolveMenu(tablero);
+            tablero.UpdateForescast(); 
+        }   
+         
     }
 
-    public static Dictionary<string, double> setCoordenadas()
+    public static Dictionary<string, double> SetCoordenadas()
     {   
         APILocation location = new APILocation();
         Dictionary<string, double> coordenadas = location.Main();

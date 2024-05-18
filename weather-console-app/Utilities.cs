@@ -3,7 +3,7 @@ using Newtonsoft.Json.Linq;
 
 class Utilities
 {   
-    public string getAPIKey(string jsonFilePath, string keyProperty)
+    public string GetAPIKey(string jsonFilePath, string keyProperty)
     {
         try
         {
@@ -16,7 +16,7 @@ class Utilities
             }
             catch (NullReferenceException)
             {
-                string currentError = $" [ ! ] No existe una clave definidia para la propiedad [{keyProperty}].";
+                string currentError = $"* [ ! ] No existe una clave definidia para la propiedad [{keyProperty}]. *";
                 string delimiter = new string('*', currentError.Length);
                 List<string> errorAdvice = new List<string>{delimiter,currentError,delimiter,""};
                 Console.Clear();
@@ -26,7 +26,7 @@ class Utilities
         }
         catch (FileNotFoundException)
         {
-            string currentError = $" [ ! ] No se encontro el archivo [{jsonFilePath}].";
+            string currentError = $"* [ ! ] No se encontro el archivo [{jsonFilePath}]. *";
             string delimiter = new string('*', currentError.Length);
             List<string> errorAdvice = new List<string>{delimiter,currentError,delimiter,""};
             Console.Clear();
@@ -35,7 +35,7 @@ class Utilities
         }
         catch (JsonException)
         {
-            string currentError = $" [ ! ] Excepcion de JSON.";
+            string currentError = $"* [ ! ] Excepcion de JSON. *";
             string delimiter = new string('*', currentError.Length);
             List<string> errorAdvice = new List<string>{delimiter,currentError,delimiter,""};
             Console.Clear();

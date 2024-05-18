@@ -8,7 +8,7 @@ class APIClimateData
 
     public Dictionary<string, double> Main()
     {
-        string apiKey = utilities.getAPIKey(jsonFilePath, weatherLocationKeyProperty);
+        string apiKey = utilities.GetAPIKey(jsonFilePath, weatherLocationKeyProperty);
         string url = $"https://maps.googleapis.com/maps/api/geolocation/v1/geolocate?key={apiKey}";
 
         // TODO

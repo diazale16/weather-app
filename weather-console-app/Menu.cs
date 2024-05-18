@@ -7,14 +7,14 @@ class Menu
         "[ Q ] Salir",
         ""
     };
-    public void resolveMenu(Dashboard tablero)
+    public void ResolveMenu(Dashboard tablero)
     {   
-        printMenu();
+        PrintMenu();
         string option = Console.ReadLine().ToString();
-        solveOption(tablero, option);
+        SolveOption(tablero, option);
         // return tablero;
     }
-    public void printMenu()
+    public void PrintMenu()
     {
         foreach (var linea in menuOptions)
         {
@@ -22,7 +22,7 @@ class Menu
         }
     }
 
-    public void solveOption(Dashboard tablero, string option = "")
+    public void SolveOption(Dashboard tablero, string option = "")
     {
         switch (option.ToLower())
         {
@@ -39,12 +39,12 @@ class Menu
                 Environment.Exit(0);
                 break;
             default:
-                string currentError = $" [ ! ] La opcion ingresada [{option}] no es valida.";
+                string currentError = $"* [ ! ] La opcion ingresada [{option}] no es valida. *";
                 string delimiter = new string('*', currentError.Length);
                 List<string> errorAdvice = new List<string>{delimiter,currentError,delimiter,""};
                 Console.Clear();
                 errorAdvice.ForEach(Console.WriteLine);
-                resolveMenu(tablero); 
+                ResolveMenu(tablero); 
                 break;
         }
     }
