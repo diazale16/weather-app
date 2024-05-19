@@ -1,4 +1,7 @@
 
+using System.ComponentModel.DataAnnotations;
+using System.Globalization;
+
 public class CoordDaily
 {
     public double Lon { get; set; }
@@ -59,4 +62,27 @@ public class WeatherResponseDaily
     public int Id { get; set; }
     public string Name { get; set; }
     public int Cod { get; set; }
+
+    public void PrintData()
+    {   
+        DateOnly dateOnly = DateOnly.FromDateTime(DateTime.Now);
+        string s = dateOnly.ToString("yyyy-M-dd", CultureInfo.InvariantCulture);
+        string header =         $" -> Clima para: {Name} ({Coord.Lat},{Coord.Lon}) para la fecha {s}";
+        string skyState =       $"    - Estado del cielo: {Weather[0].Description}";
+        string temperaturas =   $"    - Temperatura: {Main.Temp} C°";
+        string humedad =        $"    - Humedad: {Main.Humidity}%";
+        string viento =         $"    - Viento: {Wind.Speed} km/h";
+        List<string> listaPrint = [header, skyState, temperaturas, humedad, viento];
+        int maxLength = listaPrint.Max(x => x.Length);
+        string delimiter = new string('*', maxLength);
+
+        Console.Clear(); 
+        Console.WriteLine($"{delimiter}");
+        listaPrint.ForEach(Console.WriteLine);
+        Console.WriteLine($"{delimiter}");
+        Console.WriteLine("");
+        Console.Write("Pulse cualquier tecla para continuar."); Console.ReadLine();
+    }
 }
+
+

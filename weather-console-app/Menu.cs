@@ -11,9 +11,9 @@ class Menu
     public void ResolveMenu(Dashboard tablero)
     {   
         PrintMenu();
+        Console.Write(" - Ingrese una opcion: ");
         string option = Console.ReadLine().ToString();
         SolveOption(tablero, option);
-        // return tablero;
     }
     public void PrintMenu()
     {

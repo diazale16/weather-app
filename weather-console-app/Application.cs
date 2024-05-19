@@ -24,9 +24,9 @@ public class Application
             // tablero = 
             Console.Clear();
             menu.ResolveMenu(tablero);
-            tablero.UpdateForescast(); 
+            dynamic weatherResponseObject = tablero.UpdateForescast();
+            weatherResponseObject.PrintData();
         }   
-         
     }
 
     public static JObject SetCoordenadas()
