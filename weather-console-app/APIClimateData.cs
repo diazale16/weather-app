@@ -1,39 +1,31 @@
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+
 class APIClimateData
 {  
-    string weatherLocationKeyProperty = "weather_data_key";
+    string apiProperty = "weather_data_key";
     string jsonFilePath = "APIKeys.json";
     Utilities utilities = new Utilities();
 
-    public Dictionary<string, double> Main()
+    public JObject Main(string url)
     {
-        string apiKey = utilities.GetAPIKey(jsonFilePath, weatherLocationKeyProperty);
-        string url = $"https://maps.googleapis.com/maps/api/geolocation/v1/geolocate?key={apiKey}";
+        string apiKey = utilities.GetAPIKey(jsonFilePath, apiProperty);
+        string urlFinal = url + $"&appid={apiKey}";
 
-        // TODO
-        // Consumision de API 
-        /* HttpClient client = new HttpClient();
+        HttpClient client = new HttpClient();
         try
         {
-            HttpResponseMessage response = client.PostAsync(url, null).Result;
+            HttpResponseMessage response = client.GetAsync(urlFinal).Result;
             string jsonString = response.Content.ReadAsStringAsync().Result;
             JObject json = JObject.Parse(jsonString);
-            double latitude = (double)json["location"]["lat"];
-            double longitude = (double)json["location"]["lng"];
-            Console.WriteLine($" Latitud: {latitude} \nLongitud: {longitude}");
+            
+            return json;
         }
         catch (Exception ex)
         {
-            Console.WriteLine($" [!] Error: {ex.Message}");
+            string currentError = $"* [ ! ] Error: {ex.Message}. *";
+            utilities.PrintError(currentError);
             throw;
-        } */
-
-        Dictionary<string, double> coordenadas = new Dictionary<string, double>
-        {
-            { "latitud", 31.428199 },
-            { "longitud", -64.192134 }
-        };
-        return coordenadas;
+        }
     }
 }

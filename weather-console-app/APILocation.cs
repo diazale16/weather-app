@@ -7,7 +7,7 @@ class APILocation
     string jsonFilePath = "APIKeys.json";
     Utilities utilities = new Utilities();
 
-    public Dictionary<string, double> Main()
+    public JObject Main()
     {
         string apiKey = utilities.GetAPIKey(jsonFilePath, apiProperty);
         string url = $"http://api.openweathermap.org/geo/1.0/zip?zip=5000,AR&appid={apiKey}";
@@ -18,23 +18,12 @@ class APILocation
             HttpResponseMessage response = client.GetAsync(url).Result;
             string jsonString = response.Content.ReadAsStringAsync().Result;
             JObject json = JObject.Parse(jsonString);
-            
-            double lat = (double)json["lat"];
-            double lon = (double)json["lon"];
-            
-            return new Dictionary<string, double>
-            {
-                { "latitud", lat },
-                { "longitud", lon }
-            };
+            return json;
         }
         catch (Exception ex)
         {
             string currentError = $"* [ ! ] Error: {ex.Message}. *";
-            string delimiter = new string('*', currentError.Length);
-            List<string> errorAdvice = new List<string>{delimiter,currentError,delimiter,""};
-            Console.Clear();
-            errorAdvice.ForEach(Console.WriteLine);
+            utilities.PrintError(currentError);
             throw;
         }
     }

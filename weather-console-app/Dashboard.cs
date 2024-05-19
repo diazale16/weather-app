@@ -1,15 +1,14 @@
 
 class Dashboard
 {
-    public Dictionary<string, double> coordenadas { get; set; }
+    public required Coordenadas coordenadas { get; set; }
     public dynamic forecastObject { get; set; }
-    
-    // public Forecast? forecastWeek { get; set; }
+    // public Weather? forecastWeek { get; set; }
     // public Temperature? weatherDay { get; set; }
 
     
     internal void UpdateForescast()
     {
-        if (forecastObject){ forecastObject.Update(); }
+        forecastObject.Update(coordenadas);
     }
 }
