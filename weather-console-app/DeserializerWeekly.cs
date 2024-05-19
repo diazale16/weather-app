@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 
 public class MainWeekly
 {
@@ -62,24 +63,33 @@ public class WeatherResponseWeekly
     public void PrintData()
     {
         List<List<string>> listaPrint = new List<List<string>>();
+        List<string> fechas = new List<string>();
+        DateOnly fechaHoy = DateOnly.FromDateTime(DateTime.Now);
+
         Console.Clear();
+        for (var i = 0; i < 5; i++)
+        {
+            fechaHoy = fechaHoy.AddDays(1);
+            fechas.Add($"{fechaHoy.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture)} 12:00:00");
+        }
         foreach (var item in List)
         {
-            string header =     $" -> Clima para: {item.Dt_Txt.Split(" ")[0]}";
-            string skyState =   $"    - Estado del cielo: {item.Weather[0].Description}";
-            string temp =       $"    - Temperatura: {item.Main.Temp} C°";
-            string hum =        $"    - Humedad: {item.Main.Humidity}%";
-            string viento =     $"    - Viento: {item.Wind.Speed} km/h";
-            List<string> listaItem = [header, skyState, temp, hum, viento, ""];
-            listaPrint.Add(listaItem);
+            if (fechas.Contains(item.Dt_Txt)) 
+            {
+                string header =     $" -> Clima para: {item.Dt_Txt.Split(" ")[0]}";
+                string skyState =   $"    - Estado del cielo: {item.Weather[0].Description}";
+                string temp =       $"    - Temperatura: {item.Main.Temp} C°";
+                string hum =        $"    - Humedad: {item.Main.Humidity}%";
+                string viento =     $"    - Viento: {item.Wind.Speed} km/h";
+                List<string> listaItem = [header, skyState, temp, hum, viento];
+                listaPrint.Add(listaItem);
+            }
         }
         foreach (var item in listaPrint)
         {
             item.ForEach(Console.WriteLine);
-            Console.WriteLine("");
-            Console.Write("Pulse cualquier tecla para continuar al siguiente dia."); Console.ReadLine();
+            Console.ReadLine(); // Console.Write("Pulse cualquier tecla para continuar al siguiente dia."); 
         }
-        Console.WriteLine("");
         Console.Write("Pulse cualquier tecla para continuar."); Console.ReadLine();
     } 
 }

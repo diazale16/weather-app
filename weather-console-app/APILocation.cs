@@ -5,7 +5,7 @@ class APILocation
 {  
     string apiProperty = "weather_data_key";
     string jsonFilePath = "APIKeys.json";
-    string zipCode = 5000.ToString();
+    int zipCode = 5000;
     string countryIsoId = "AR";
     Utilities utilities = new Utilities();
 
