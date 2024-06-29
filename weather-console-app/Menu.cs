@@ -5,6 +5,7 @@ class Menu
         " --> WEATHER FORECAST APPLICATION",
         "[ 1 ] Clima del dia",
         "[ 2 ] Clima de la semana",
+        "[ 3 ] Cambiar localidad",
         "[ Q ] Salir",
         ""
     };
@@ -34,6 +35,10 @@ class Menu
             case "2":
                 Forecast forecastWeek = new Forecast();
                 tablero.forecastObject = forecastWeek;
+                break;
+            case "3":
+                // TODO
+                // Re asignar coordenadas
                 break;
             case "q":
                 Console.Clear();

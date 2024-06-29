@@ -32,6 +32,8 @@ public class Application
     public static JObject SetCoordenadas()
     {   
         APILocation apiLocacion = new APILocation();
+        Console.Clear();
+        apiLocacion.ResolveMenu();
         JObject coordenadas = apiLocacion.Main();
         return coordenadas;
     }
